@@ -13,7 +13,7 @@ const path = require('path')
  // Load environment variables
 dotenv.config();
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 // ✅ MongoDB connection
 
@@ -31,7 +31,7 @@ app.use('/product',productRoutes);
 app.use('/uploads',express.static('uploads'));
 
 
-app.get("/home", (req,res) => {
+app.get("/", (req,res) => {
   res.send("<h1>Welcome to Suby</h1>");
 });
 
